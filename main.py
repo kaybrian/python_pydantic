@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ValidationError, Field, BaseSettings
+from pydantic import BaseModel, ValidationError, Field, BaseSettings, SecretStr
 from typing import List
 from enum import Enum
 import json
@@ -50,6 +50,7 @@ data2 = {
 
 class Settings(BaseSettings):
     api_key:str 
+    db_pass:SecretStr
     
     class Config:
         env_file=".env"
